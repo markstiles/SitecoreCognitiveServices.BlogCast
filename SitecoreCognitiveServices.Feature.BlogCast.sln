@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreCognitiveServices.Feature.BlogCast", "SitecoreCognitiveServices.Feature.BlogCast.csproj", "{440BC05D-5D20-4B53-AF52-C2ADFFDABAA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitecoreCognitiveServices.Feature.BlogCast", "code\SitecoreCognitiveServices.Feature.BlogCast.csproj", "{440BC05D-5D20-4B53-AF52-C2ADFFDABAA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4E6325CF-E026-4492-BA43-AF834DD57A5E}
+		SolutionGuid = {E25EC625-21A1-4A0B-951D-9F32CB57640E}
 	EndGlobalSection
 EndGlobal
