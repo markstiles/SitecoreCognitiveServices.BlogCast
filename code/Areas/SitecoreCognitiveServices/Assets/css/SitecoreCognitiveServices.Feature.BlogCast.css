@@ -1,0 +1,16 @@
+﻿
+.blog-cast { width:650px; margin:0 auto; padding-top:40px; }
+.blog-cast .form { display:none; }
+.blog-cast fieldset { border: 0; width: 650px; margin: 0 auto; padding:0px; }
+.blog-cast .create-submit { background:#74a7d6; color:#fff; padding:10px 15px; margin-bottom:20px; border: 0; border-radius:7px; font-weight:bold; font-size:16px; cursor:pointer; }
+.blog-cast .progress-indicator { top:52px; right:255px; }
+.control-button { display:none; border:2px solid #74a7d6; border-radius:7px; padding:3px 10px 0px 8px; margin-bottom:20px; }
+.control-button .play,
+.control-button .pause { height:80px; width:80px; vertical-align:middle; cursor:pointer; }
+.control-button .wave { height:100px; vertical-align:middle; margin-left:5px; }
+.control-button .play,
+.control-button .pause { display:none; }
+.control-button .play.show,
+.control-button .pause.show { display:inline-block; }
+.control-button.show { display:inline-block; }
+.blog-cast .form.show { display:inline; }

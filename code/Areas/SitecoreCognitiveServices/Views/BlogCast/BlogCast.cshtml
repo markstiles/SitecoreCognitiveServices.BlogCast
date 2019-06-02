@@ -1,0 +1,30 @@
+﻿@model Sitecore.Mvc.Presentation.RenderingModel
+
+<link href="/Areas/SitecoreCognitiveServices/Assets/css/SitecoreCognitiveServices.Feature.BlogCast.css?x=@(new System.Random().Next())" rel="stylesheet" type="text/css" />
+<script src="/Areas/SitecoreCognitiveServices/Assets/js/SitecoreCognitiveServices.Feature.BlogCast.js"></script>
+@{ 
+    var audioRelativePath = "temp/blogcast-" + @Model.PageItem.ID.Guid.ToString("N") + ".mp3";
+    var audioFullPath = HttpContext.Current.Request.PhysicalApplicationPath + audioRelativePath;
+    var showControls = File.Exists(audioFullPath) ? "show" : "";
+    var showCreate = File.Exists(audioFullPath) ? "" : "show";
+}
+<div class="blog-cast">
+    <div class="control-button @showControls" data-file="/@audioRelativePath">
+        <img class="play show" src="~/Areas/SitecoreCognitiveServices/Assets/img/play.jpg" />
+        <img class="pause" src="~/Areas/SitecoreCognitiveServices/Assets/img/pause.jpg" />
+        <img class="wave" src="~/Areas/SitecoreCognitiveServices/Assets/img/wave.jpg" />
+    </div>
+    <form class="form @showCreate" method="post" action="/SitecoreCognitiveServices/BlogCast/CreateMediaFile">
+        <fieldset>
+            <button class="create-submit scButton">Create Media File</button>
+            <input type="hidden" name="id" id="id" value="@Model.PageItem.ID.ToString()" />
+            <input type="hidden" name="db" id="db" value="web" />
+            <input type="hidden" name="language" id="language" value="@Model.PageItem.Language.Name" />
+        </fieldset>
+    </form>
+    <div class="content">
+        @Html.Sitecore().Field("Content")
+    </div>
+
+    @Html.Partial("/Areas/SitecoreCognitiveServices/Views/IntelligentSearch/_ProgressIndicator.cshtml")
+</div>
