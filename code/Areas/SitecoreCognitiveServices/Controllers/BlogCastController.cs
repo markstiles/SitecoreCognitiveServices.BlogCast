@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
@@ -27,7 +28,7 @@ namespace SitecoreCognitiveServices.Feature.BlogCast.Areas.SitecoreCognitiveServ
         }
 
         #endregion
-        
+
         #region BlogCast
 
         public ActionResult CreateMediaFile(string id, string db, string language)
@@ -35,7 +36,20 @@ namespace SitecoreCognitiveServices.Feature.BlogCast.Areas.SitecoreCognitiveServ
             var page = DataWrapper.GetItemByIdValue(id, db);
             var html = page.Fields["Content"].Value;
 
-            var cleanText = Regex.Replace(html, "<.*?>", " ").Replace("\"", "").Replace("&", " and ").Replace("   ", " ").Replace("  ", " ");
+            var sb = new StringBuilder();
+            var tags = new List<string> { "<sub", "</sub>", "<sup", "</sup>" };
+            var arr = html.Split(tags.ToArray(), StringSplitOptions.RemoveEmptyEntries);
+            var shouldRemove = false;
+            for (var i = 0; i < arr.Length; i++)
+            {
+                var el = arr[i];
+                if (!el.StartsWith(">") && !shouldRemove)
+                    sb.Append(el);
+
+                shouldRemove = el.Contains("/");
+            }
+
+            var cleanText = Regex.Replace(sb.ToString(), "<.*?>", " ").Replace("\"", "").Replace("&", " and ").Replace("   ", " ").Replace("  ", " ");
 
             var relativePath = $"temp\\blogcast-{page.ID.Guid.ToString("N")}.mp3";
             var filePath = $"{Request.PhysicalApplicationPath}{relativePath}";
