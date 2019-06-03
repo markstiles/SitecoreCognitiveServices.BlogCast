@@ -50,6 +50,18 @@ namespace SitecoreCognitiveServices.Feature.BlogCast.Areas.SitecoreCognitiveServ
             return Json(new { Succeeded = true });
         }
 
+        public ActionResult RemoveMediaFile(string id, string db, string language)
+        {
+            Guid g = Guid.Parse(id);          
+            var relativePath = $"temp\\blogcast-{g.ToString("N")}.mp3";
+            var filePath = $"{Request.PhysicalApplicationPath}{relativePath}";
+
+            if (System.IO.File.Exists(filePath))
+                System.IO.File.Delete(filePath);
+
+            return Json(new { Succeeded = true });
+        }
+
         #endregion
     }
 }

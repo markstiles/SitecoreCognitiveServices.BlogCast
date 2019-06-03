@@ -11,19 +11,20 @@ jQuery(document).ready(function ()
     var playButton = controlButton + " .play";
     var pauseButton = controlButton + " .pause";
     var show = "show";
-    var audio;
+    var removeButton = ".remove-button";
+    var audioPlayer = "#audio-player";
+    var audioPlayerSource = audioPlayer + " source";
 
     jQuery(playButton + ", " + pauseButton).click(function (e)
     {
-        if(audio == null)
-            audio = new Audio(jQuery(controlButton).data("file"));
+        var audio = jQuery(audioPlayer);
         if (jQuery(playButton).hasClass(show))
         {
             jQuery(playButton).removeClass(show);
             jQuery(pauseButton).addClass(show);
             try
             {
-                audio.play();
+                audio[0].play();
             } catch (error) {
                 console.log(error);
             }
@@ -34,7 +35,7 @@ jQuery(document).ready(function ()
             jQuery(playButton).addClass(show);
 
             try {
-                audio.pause();
+                audio[0].pause();
             } catch (error) {
                 console.log(error);
             }
@@ -65,7 +66,38 @@ jQuery(document).ready(function ()
         ).done(function (r) {
             jQuery(progressIndicator).hide();
             jQuery(controlButton).addClass(show);
-            jQuery(form).removeClass(show);
+            jQuery(removeButton).addClass(show);
+            jQuery(form).removeClass(show);            
         });
-    }    
+    } 
+
+    jQuery(removeButton).click(function (e) {
+        e.preventDefault();
+
+        RemoveMediaItem();
+    });
+
+    function RemoveMediaItem()
+    {
+        var idValue = jQuery(form + " #id").val();
+        var dbValue = jQuery(form + " #db").val();
+        var langValue = jQuery(form + " #language").val();
+
+        jQuery(progressIndicator).show();
+
+        jQuery.post(
+            jQuery(form).attr("remove-action"),
+            {
+                id: idValue,
+                db: dbValue,
+                language: langValue
+            }
+        ).done(function (r)
+        {
+            jQuery(progressIndicator).hide();
+            jQuery(form).addClass(show);
+            jQuery(controlButton).removeClass(show);
+            jQuery(removeButton).removeClass(show);
+        });
+    } 
 });

@@ -14,3 +14,6 @@
 .control-button .pause.show { display:inline-block; }
 .control-button.show { display:inline-block; }
 .blog-cast .form.show { display:inline; }
+.remove-button { display:none; border-radius: 5px; font-size: 16px; padding: 8px 12px; border:2px solid #74a7d6; background: #74a7d6; color: #fff; margin-left: 215px; cursor:pointer; }
+.remove-button:hover { background: #fff; color: #74a7d6; }
+.remove-button.show { display:inline-block; }
