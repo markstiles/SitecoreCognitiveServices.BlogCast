@@ -4,6 +4,7 @@
 .blog-cast fieldset { border: 0; width: 650px; margin: 0 auto; padding:0px; }
 .blog-cast .create-submit { background:#74a7d6; color:#fff; padding:10px 15px; margin-bottom:20px; border: 0; border-radius:7px; font-weight:bold; font-size:16px; cursor:pointer; }
 .blog-cast .progress-indicator { top:52px; right:255px; }
+.blog-cast .content { font-size:30px; }
 .control-button { display:none; border:2px solid #74a7d6; border-radius:7px; padding:3px 10px 0px 8px; margin-bottom:20px; }
 .control-button .play,
 .control-button .pause { height:80px; width:80px; vertical-align:middle; cursor:pointer; }
