@@ -112,6 +112,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Config\Include\SitecoreCognitiveServices\Unicorn.Configs.SitecoreCognitiveServices.Feature.BlogCast.config" />
+    <Content Include="Areas\SitecoreCognitiveServices\Views\BlogCast\MainLayout.cshtml" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\deploy.pubxml" />
   </ItemGroup>

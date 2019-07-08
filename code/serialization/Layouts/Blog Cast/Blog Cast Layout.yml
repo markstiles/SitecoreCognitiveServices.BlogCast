@@ -1,0 +1,22 @@
+﻿---
+ID: "2daffeba-20c3-4fa2-8206-c242b0e07016"
+Parent: "6434976b-9327-45cf-9f88-bd65ed8f79da"
+Template: "3a45a723-64ee-4919-9d41-02fd40fd1466"
+Path: /sitecore/layout/Layouts/Sitecore Cognitive Services/Features/Blog Cast/Blog Cast Layout
+DB: master
+SharedFields:
+- ID: "a036b2bc-ba04-44f6-a75f-bae6cd242abf"
+  Hint: Path
+  Value: /Areas/SitecoreCognitiveServices/Views/BlogCast/MainLayout.cshtml
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190429T174306Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

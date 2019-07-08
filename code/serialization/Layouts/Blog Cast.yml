@@ -1,0 +1,14 @@
+﻿---
+ID: "6434976b-9327-45cf-9f88-bd65ed8f79da"
+Parent: "a19611d0-948c-4470-85e8-598be6618b35"
+Template: "93227c5d-4fef-474d-94c0-f252ec8e8219"
+Path: /sitecore/layout/Layouts/Sitecore Cognitive Services/Features/Blog Cast
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190708T133725Z

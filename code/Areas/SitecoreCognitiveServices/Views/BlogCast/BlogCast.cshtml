@@ -1,6 +1,5 @@
 ﻿@model Sitecore.Mvc.Presentation.RenderingModel
 
-<link href="/Areas/SitecoreCognitiveServices/Assets/css/SitecoreCognitiveServices.Feature.BlogCast.css?x=@(new System.Random().Next())" rel="stylesheet" type="text/css" />
 <script src="/Areas/SitecoreCognitiveServices/Assets/js/SitecoreCognitiveServices.Feature.BlogCast.js"></script>
 @{ 
     var audioRelativePath = "temp/blogcast-" + @Model.PageItem.ID.Guid.ToString("N") + ".mp3";
