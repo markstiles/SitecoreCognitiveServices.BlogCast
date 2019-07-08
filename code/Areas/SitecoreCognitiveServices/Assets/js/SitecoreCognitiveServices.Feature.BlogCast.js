@@ -7,23 +7,28 @@ jQuery(document).ready(function ()
     var form = container + " .form";
     var formSubmit = form + " .create-submit";
     var progressIndicator = ".progress-indicator";
-    var controlButton = container + " .control-button";
-    var playButton = controlButton + " .play";
-    var pauseButton = controlButton + " .pause";
+    var controlButtonMale = container + " .control-button-male";
+    var playButtonMale = controlButtonMale + " .play";
+    var pauseButtonMale = controlButtonMale + " .pause";
+    var controlButtonFemale = container + " .control-button-female";
+    var playButtonFemale = controlButtonFemale + " .play";
+    var pauseButtonFemale = controlButtonFemale + " .pause";
     var show = "show";
     var removeButton = ".remove-button";
-    var audioPlayer = "#audio-player";
-    var audioPlayerSource = audioPlayer + " source";
+    var audioPlayerMale = "#audio-player-male";
+    var audioPlayerFemale = "#audio-player-female";
 
-    jQuery(playButton + ", " + pauseButton).click(function (e)
+    //play male audio
+    jQuery(playButtonMale + ", " + pauseButtonMale).click(function (e)
     {
-        var audio = jQuery(audioPlayer);
-        if (jQuery(playButton).hasClass(show))
+        var audio = jQuery(audioPlayerMale);
+        if (jQuery(playButtonMale).hasClass(show))
         {
-            jQuery(playButton).removeClass(show);
-            jQuery(pauseButton).addClass(show);
+            jQuery(playButtonMale).removeClass(show);
+            jQuery(pauseButtonMale).addClass(show);
             try
             {
+                audio[0].load();
                 audio[0].play();
             } catch (error) {
                 console.log(error);
@@ -31,8 +36,34 @@ jQuery(document).ready(function ()
         }
         else
         {
-            jQuery(pauseButton).removeClass(show);
-            jQuery(playButton).addClass(show);
+            jQuery(pauseButtonMale).removeClass(show);
+            jQuery(playButtonMale).addClass(show);
+
+            try {
+                audio[0].pause();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    });
+
+    jQuery(playButtonFemale + ", " + pauseButtonFemale).click(function (e)
+    {
+        var audio = jQuery(audioPlayerFemale);
+        if (jQuery(playButtonFemale).hasClass(show))
+        {
+            jQuery(playButtonFemale).removeClass(show);
+            jQuery(pauseButtonFemale).addClass(show);
+            try {
+                audio[0].load();
+                audio[0].play();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        else {
+            jQuery(pauseButtonFemale).removeClass(show);
+            jQuery(playButtonFemale).addClass(show);
 
             try {
                 audio[0].pause();
@@ -65,7 +96,8 @@ jQuery(document).ready(function ()
             }
         ).done(function (r) {
             jQuery(progressIndicator).hide();
-            jQuery(controlButton).addClass(show);
+            jQuery(controlButtonMale).addClass(show);
+            jQuery(controlButtonFemale).addClass(show);
             jQuery(removeButton).addClass(show);
             jQuery(form).removeClass(show);            
         });
@@ -96,7 +128,8 @@ jQuery(document).ready(function ()
         {
             jQuery(progressIndicator).hide();
             jQuery(form).addClass(show);
-            jQuery(controlButton).removeClass(show);
+            jQuery(controlButtonMale).removeClass(show);
+            jQuery(controlButtonFemale).removeClass(show);
             jQuery(removeButton).removeClass(show);
         });
     } 
